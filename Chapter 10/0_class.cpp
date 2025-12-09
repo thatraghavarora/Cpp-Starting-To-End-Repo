@@ -1,30 +1,31 @@
 #include <iostream>
 using namespace std;
 
-class Student {
-private:
-    int age;       // private data
-    float marks;   // private data
+class CityToilet{
+        private:
+        void PrivateToilet(){
+        cout<<"Private Toilet\n";
+        };
+        public:
+        void PublicToilet(){
+        cout<<"Public Toilet\n";
+        };
+        protected:
+        void FamilyToilet(){
+        cout<<"Family Toilet\n";
+        };
+    };
 
+class CommunityMember : public CityToilet {
 public:
-    // function to set values
-    void setData(int a, float m) {
-        age = a;
-        marks = m;
-    }
-
-    // function to show values
-    void display() {
-        cout << "Age: " << age << endl;
-        cout << "Marks: " << marks << endl;
-    }
+    void useCommunityToilet() {
+        FamilyToilet(); // Allowed (protected used in derived class)
+    };
 };
-
 int main() {
-    Student s;          // object
-    s.setData(20, 85.5);
-    s.display();
-
-    return 0;
+    CityToilet Jaipur;
+    Jaipur.PublicToilet();
+    CommunityMember cm;
+    cm.useCommunityToilet();
 }
-
+    
